@@ -1,0 +1,66 @@
+-- Bài 1:
+
+CREATE TABLE IF NOT EXISTS Nhanvien (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  full_name VARCHAR(255),
+  so_chiec INT,
+  ngay_bat_dau DATETIME
+);
+
+INSERT INTO Nhanvien (full_name, ngay_bat_dau, so_chiec)
+VALUES
+	('Hoang', '2007-01-24', 250),
+	('Nam', '2007-05-27', 220),
+	('Viet', '2007-05-06', 170),
+	('Viet', '2007-04-06', 100),
+	('Huong', '2007-04-06', 220),
+	('Xuan', '2007-06-06', 300),
+	('Xuan', '2007-02-06', 350);
+
+
+SELECT CONCAT(full_name, ', ', ngay_bat_dau) thong_tin
+FROM Nhanvien;
+
+
+-- Bài 2:
+
+CREATE TABLE IF NOT EXISTS Employee (
+  employee_id INT,
+  employee_name VARCHAR(255),
+  salary INT
+);
+
+
+INSERT INTO Employee (employee_id, employee_name, salary)
+VALUES
+	(12,'Finch', 15000),
+	(22,'Peter', 25000),
+	(32,'Warner', 5600),
+	(42,'Watson', 90000);
+
+SELECT employee_id, employee_name, salary * 2 AS new_salary
+FROM Employee;
+
+-- Bài 3:
+
+CREATE TABLE IF NOT EXISTS Dates (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  birthday DATETIME
+);
+
+
+INSERT INTO Dates (first_name, last_name, birthday)
+VALUES
+	('Le Thi','Thu', '1996-12-12'),
+	('Vu Thi','Nga', '1997-11-17'),
+	('Nguyen Van','C', '2000-12-17'),
+	('Pham Van','D', '1998-10-11'),
+	('Tran Dinh','Trong', '1997-04-25'),
+	('Bui Tien','Dung', '1997-02-28');
+
+SELECT first_name, last_name, birthday, DATEDIFF(NOW(), birthday)
+AS days_until_birthday
+FROM Dates;
+
